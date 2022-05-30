@@ -1,0 +1,75 @@
+@startuml
+
+abstract class Provider << abstract >> {
+  + String getProvider()
+  + String getAddress()
+}
+
+interface Category << interface >> {
+  + void setCategory(String name)
+  + String getCategory()
+}
+
+class Product {
+  - String name
+  - String code
+  - double price
+  - int amount
+  
+  + Product(String name)
+  + void setPrice(double price)
+  + double getPrice()
+  + void setProvider(String name)
+  + void setAddress(String address)
+  + void setCode(String code)
+  + String getCode()
+  + void setMount(int amount)
+  + int getMount()
+}
+
+class Computers {
+  - String type
+
+  + Computers()
+  + void setTypeComputer(String type)
+  + String getTypeComputer()
+}
+
+class ComputersLaptops {
+  - String trademark
+  + ComputersLaptops()
+  + void setTradeMark(String trademark)
+  + String getTradeMark()
+}
+
+class ComputersDesktop {
+  - String trademark
+  + ComputersDesktop()
+  + void setTradeMark(String trademark)
+  + String getTradeMark()
+}
+
+class Cookies {
+  - String taste
+  + cookies()
+  + void setTaste(String taste)
+  + String getTaste()
+}
+
+class Shoes {
+  int size
+  + Shoes()
+  + void setSize(int size)
+  + int getSize()
+}
+
+Category <|..  Product
+Provider <|-- Product
+Product <|-- Computers
+Product <|-- cookies
+Product <|-- Shoes
+
+Computers <|-- ComputersLaptops
+Computers <|-- ComputersDesktop
+
+@enduml
